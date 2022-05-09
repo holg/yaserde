@@ -1,10 +1,12 @@
 [package]
 name = "yaserde-examples"
 version = "0.8.0"
-authors = ["Marc-Antoine Arnaud <maarnaud@media-io.com>"]
+authors = ["Marc-Antoine Arnaud <maarnaud@media-io.com>", "Holger Trahe<trahe@mac.com>"]
 license = "MIT"
 edition = "2018"
 
 [dependencies]
 yaserde = {version = "0.8.0", path = "../yaserde" }
 yaserde_derive = {version = "0.8.0", path = "../yaserde_derive" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = {version = "1.0"}

@@ -293,8 +293,12 @@ pub fn parse(
       let set_text = |action: &TokenStream| {
         if field.is_text_content() {
           Some(quote! { #label = #action; })
-        } else {
-          None
+        }else {
+          if field.is_textf64_content() {
+            Some(quote! { #label = #action; })
+          } else {
+            None
+          }
         }
       };
 

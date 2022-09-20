@@ -31,6 +31,12 @@ impl YaSerdeField {
   pub fn is_text_content(&self) -> bool {
     self.attributes.text
   }
+  pub fn is_textf64_content(&self) -> bool {
+    self.attributes.textf64
+  }
+  pub fn is_texti32_content(&self) -> bool {
+    self.attributes.texti32
+  }
 
   pub fn is_flatten(&self) -> bool {
     self.attributes.flatten

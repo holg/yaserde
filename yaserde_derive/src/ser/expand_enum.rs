@@ -155,7 +155,8 @@ fn inner_enum_inspector(
                         writer.write(struct_start_event).map_err(|e| e.to_string())?;
 
                         let string_value = #field_label.to_string();
-                        let data_event = ::yaserde::__xml::writer::XmlEvent::characters(&string_value);
+                        let s = self.#label.to_string();
+                        let data_event = ::yaserde::__xml::writer::XmlEvent::characters(&s);
                         writer.write(data_event).map_err(|e| e.to_string())?;
 
                         let struct_end_event = ::yaserde::__xml::writer::XmlEvent::end_element();

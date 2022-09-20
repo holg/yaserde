@@ -8,3 +8,8 @@ edition = "2018"
 [dependencies]
 yaserde = {version = "0.8.0", path = "../yaserde" }
 yaserde_derive = {version = "0.8.0", path = "../yaserde_derive" }
+serde = { version = "1.0.122", features = ["derive"] }
+serde_json = {version = "1.0.85"}
+zip = {version="0.6", features = ["deflate", "time"], default-features = false}
+rust_decimal = "1.18"
+rust_decimal_macros = "1.18"

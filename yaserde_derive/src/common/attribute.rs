@@ -15,6 +15,8 @@ pub struct YaSerdeAttribute {
   pub skip_serializing: bool,
   pub skip_serializing_if: Option<String>,
   pub text: bool,
+  pub texti32: bool,
+  pub textf64: bool,
 }
 
 fn get_value(iter: &mut IntoIter) -> Option<String> {
@@ -43,6 +45,8 @@ impl YaSerdeAttribute {
     let mut skip_serializing = false;
     let mut skip_serializing_if = None;
     let mut text = false;
+    let mut texti32 = false;
+    let mut textf64 = false;
 
     for attr in attrs.iter().filter(|a| a.path.is_ident("yaserde")) {
       let mut attr_iter = attr.clone().tokens.into_iter();
@@ -91,6 +95,12 @@ impl YaSerdeAttribute {
                 "text" => {
                   text = true;
                 }
+                "texti32" => {
+                  texti32 = true;
+                }
+                "textf64" => {
+                  textf64 = true;
+                }
                 _ => {}
               }
             }
@@ -110,6 +120,8 @@ impl YaSerdeAttribute {
       skip_serializing,
       skip_serializing_if,
       text,
+      texti32,
+      textf64,
     }
   }
 
@@ -185,6 +197,8 @@ fn parse_empty_attributes() {
       skip_serializing: false,
       skip_serializing_if: None,
       text: false,
+      textf64:false,
+      texti32: false
     },
     attrs
   );
@@ -235,6 +249,8 @@ fn parse_attributes() {
       skip_serializing: false,
       skip_serializing_if: None,
       text: false,
+      textf64:false,
+      texti32: false
     },
     attrs
   );
@@ -285,6 +301,8 @@ fn only_parse_yaserde_attributes() {
       skip_serializing: false,
       skip_serializing_if: None,
       text: false,
+      textf64:false,
+      texti32: false
     },
     attrs
   );
@@ -341,6 +359,8 @@ fn parse_attributes_with_values() {
       skip_serializing: false,
       skip_serializing_if: None,
       text: false,
+      textf64:false,
+      texti32: false
     },
     attrs
   );

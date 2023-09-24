@@ -34,6 +34,7 @@ impl YaSerdeField {
   pub fn is_textf64_content(&self) -> bool {
     self.attributes.textf64
   }
+  #[allow(dead_code)]
   pub fn is_texti32_content(&self) -> bool {
     self.attributes.texti32
   }
